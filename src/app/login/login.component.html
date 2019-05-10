@@ -1,0 +1,69 @@
+<div class="content container">
+    <div class="page-wrapper">
+        <h2>Sign in to your account</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="page-content ">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <h4>Use Zappylearning account to log in.</h4>
+                        <hr />
+                        <div class="form-group ">
+                            <div style="text-align:left; "><span class="error ">{{message}}</span></div>
+                            <div class="input-group ">
+                                <span class="input-group-addon "><i class="glyphicon glyphicon-user "></i></span>
+                                <input type="email " placeholder="Email " class="form-control" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            </div>
+                            <div class="input-group " style="height:20px; ">
+                                <span *ngIf="f.username.errors.required" class="error ">Email is required.</span>
+                                <!--<span *ngIf="f.username.errors.email" class="error ">Invalid email address.</span>-->
+                            </div>
+                            <div class="input-group ">
+                                <span class="input-group-addon "><i class="glyphicon glyphicon-lock "></i></span>
+                                <input type="password " placeholder="Password " class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            </div>
+                            <div class="input-group " style="height:20px; ">
+                                <span *ngIf="submitted && f.password.errors" class="error ">Password is required.</span>
+                            </div>
+                            <!--<div class="form-group ">
+                                            <div class="checkbox ">
+                                                <label for="RememberMe ">
+                                                    <input type="checkbox " id="RememberMe " name="RememberMe " >
+                                                    Remember me?
+                                                </label>
+                                            </div>
+                                        </div>-->
+                            <div class="input-group " style="display:block;margin:0 ">
+                                <button class="btn btn-default btn-blue ">Sign in</button>
+                            </div>
+                            <hr />
+                            <div class="form-group ">
+                                <p>
+                                    <a href="/forgetpassword " style="text-decoration: none; ">Forgot your password?</a>
+                                </p>
+                                <p>
+                                    <a href="/register " style="text-decoration: none; ">Register as Zappylearning user?</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-2 ">
+                <div class="page-content ">
+                    <h4>Use another service to log in.</h4>
+                    <hr />
+                    <button class="loginBtn loginBtn--facebook " type="button "><i class="fa fa-facebook "></i> Connect with Facebook</button>
+                    <br />
+                    <button class="loginBtn loginBtn--google " type="button "><i class="fa fa-google-plus "></i> Connect with Google+</button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row ">
+            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                <div uib-alert class=" 'alert alert-'+alert.type ">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
